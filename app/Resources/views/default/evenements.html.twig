@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+{% block main %}
+  <body>
+    <div class="callout large primary">
+      <div class="row column text-center">
+      </div>
+    </div>
+    
+    <!-- We can now combine rows and columns when there's only one column in that row -->
+    <div class="row medium-8 large-7 columns">
+      <div class="blog-post">
+        <h3>Le Trail de l'Élorn <small>3/8/2017</small></h3>
+        <img class="thumbnail" src="img/affiche_small.png">
+        <p>La Roche Sports Nature organise le Trail de l'Elorn, le dimanche 3 août 2017 au départ de La Roche Maurice.
+Ce site vous permet de vous inscrire à l'épreuve, et vous donne les infos pratiques sur le programme, les parcours, l'accès... </p>
+        <div class="callout">
+          <ul class="menu simple">
+            <li><a href="#">Organisateur: Georges Mickael</a></li>
+            <li><a href="#">Plus d'infos</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>
+{% endblock %}
+{% block javascripts %}{% endblock %}
+
+
+    

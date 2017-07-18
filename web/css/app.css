@@ -1,0 +1,67 @@
+/********************BASE******************/
+.logo{
+    font-size: 2.5vh;
+    color:black;
+}
+
+.top-bar-left.menu a li{
+    padding: 0.7rem 1rem;
+}
+
+footer{
+    display:flex !important;
+}
+.footer{
+    max-width: 40vh;
+    margin: 2vh 5vh;
+}
+/********************PAGE ACCUEIL******************/
+.callout{
+    position:relative;
+    display:inherit;
+    padding:0rem;
+    margin:0rem;
+    display:flex;
+    flex-direction: column;
+}
+.callout.large{
+    position:relative;
+    display:inherit;
+    padding:0rem;
+    margin:0rem;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+
+}
+body .callout.large .row.column.text-center{
+    position:absolute;
+    z-index:2;
+    color:white;
+    
+}
+
+.bg_accueil{
+    -webkit-filter: blur(2px); /* Safari 6.0 - 9.0 */
+    filter: blur(2px);
+}
+.home_last_event_txt{
+    padding-left: 4vh;
+}
+/********************PAGE PRESENTATION******************/
+.club{
+    display:flex;
+    justify-content: space-around;
+}
+.homeimg{
+    float:right;
+}
+.container_portfolio{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+.container_portfolio > img{
+    float: left;
+}

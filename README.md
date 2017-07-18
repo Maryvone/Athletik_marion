@@ -1,2 +1,4 @@
-# Athletik_marion
-Site vitrine de l'association Athletik ainsi que de l'affichage des résultats des différents meetings et du classement général des adhérents.
+Athletik_marion
+===============
+
+A Symfony project created on July 18, 2017, 9:03 am.
