@@ -11,10 +11,10 @@
 
     <div class="row medium-up-3 large-up-4 container_portfolio">
         <table>
-            <tr><th>Nom</th><th>Prénom</th><th>Temps</th><th>Points</th></tr>
+            <tr><th>Nom</th><th>Prénom</th><th>Points</th></tr>
             
-      {% for result in classements %}
-          <tr><td>{{result.athlete.lastname}}</td><td>{{result.athlete.firstname}}</td><td>{{result.time}}</td><td>{{result.points}}</td></tr>
+      {% for result in classement %}
+          <tr><td>{{result.lastname}}</td><td>{{result.firstname}}</td><td>{{result.total}}</td></tr>
       {% endfor %}
       <!--<div class="column">
         <img class="thumbnail" src="http://placehold.it/50x50">

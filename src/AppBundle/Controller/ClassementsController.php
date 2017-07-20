@@ -14,12 +14,17 @@ class ClassementsController extends Controller
      */
     public function classementsAction()
     {
-        $em = $this->getDoctrine()->getManager(); 
-        
-        $query =$em->createQuery('SELECT m FROM result m');
-        //$query->setParameter(1, 'romanb');
-        $meetings = $query->getResult();
-        return $this->render('default/classements.html.twig', ['classements'=>$meetings]);
+    $em = $this->getDoctrine()->getManager();
+
+    $sql='SELECT SUM(result.points) as total, athlete.lastname, athlete.firstname 
+        FROM result inner join athlete on result.athlete_id = athlete.id 
+        inner join meeting on result.meeting_id = meeting.id 
+        WHERE YEAR(CURRENT_DATE()) = 2017 GROUP BY athlete.id 
+        ORDER BY total DESC 
+';      $toto=$em->getConnection()->prepare($sql);
+        $toto->execute();
+        $resultat=$toto->fetchAll();
+        return $this->render('default/classements.html.twig',['classement'=>$resultat]);
     }
     
     
