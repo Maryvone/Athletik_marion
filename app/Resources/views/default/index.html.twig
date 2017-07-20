@@ -1,4 +1,5 @@
 {% extends 'base.html.twig' %}
+
 {% block main %}
 
     <div class="callout large primary">
@@ -18,26 +19,26 @@
       <img src="img/Athletik_accueil.jpg" class="bg_accueil"/>
       
     </div>
-    
+
     <div class="row">
       <div class="medium-6 columns medium-push-6">
         <img class="thumbnail homeimg" src="http://placehold.it/750x350">
       </div>
-      <div class="medium-6 columns medium-pull-6 home_last_event_txt">
-        <h2>Le Trézir, un plaisir.</h2>
-        <p>Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam porttitor mauris, quis sollicitudin sapien justo in libero. Vestibulum mollis mauris enim. Morbi euismod magna ac lorem rutrum elementum. Donec viverra auctor.</p>
+      <div class="medium-6 columns medium-pull-6 home_last_event_txt">          
+            <h2>{{ meeting[0].name }}</h2>
+            <p>{{ meeting[0].description }}</p>
       </div>
     </div>
 
     <div class="row">
       <div class="medium-4 columns">
         <h3>Date</h3>
-        <p>Vivamus luctus.</p>
+        <p>{{ meeting[0].date|date('d/m/Y') }}</p>
       </div>
     </div>
-
+ 
     <hr>
-
+    
     <div class="row column">
       <ul class="vertical medium-horizontal menu expanded text-center">
         <li><a href="#"><div class="stat">288</div><span>Courses</span></a></li>
@@ -49,44 +50,26 @@
     </div>
 
     <hr>
-
+    
     <div class="row column">
+    
       <h3>Nos dernières courses</h3>
     </div>
+    
+    {% for Dernieres_courses in meeting %}
+        {% if loop.index > 1 %}
+        <div class="row medium-up-3 large-up-4 container_portfolio">
+          <div class="column">
+            <img class="thumbnail" src="http://placehold.it/550x550">
+          </div>
+        </div>
+    {% endif%}
 
-    <div class="row medium-up-3 large-up-4 container_portfolio">
-      <div class="column">
-        <img class="thumbnail" src="http://placehold.it/550x550">
-      </div>
-      <div class="column">
-        <img class="thumbnail" src="http://placehold.it/550x550">
-      </div>
-      <div class="column">
-        <img class="thumbnail" src="http://placehold.it/550x550">
-      </div>
-      <div class="column">
-        <img class="thumbnail" src="http://placehold.it/550x550">
-      </div>
-      <div class="column">
-        <img class="thumbnail" src="http://placehold.it/550x550">
-      </div>
-      <div class="column">
-        <img class="thumbnail" src="http://placehold.it/550x550">
-      </div>
-      <div class="column">
-        <img class="thumbnail" src="http://placehold.it/550x550">
-      </div>
-      <div class="column">
-        <img class="thumbnail" src="http://placehold.it/550x550">
-      </div>
-
-    </div>
-
+    {% endfor %}
     <hr>
 
 
 {% endblock %}
-{% block javascripts %}{% endblock %}
 
 
 

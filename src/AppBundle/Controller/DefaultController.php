@@ -9,14 +9,31 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/", name="homepageid")
      */
     public function indexAction(Request $request)
-    {
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
-    }   
+    {   
+        $repository = $this->getDoctrine()->getManager();
+        
+       
+        //affichage de la derniere et des 8 dernieres courses
+        $em = $repository->createQuery('SELECT M FROM AppBundle:Meeting M ORDER BY M.id DESC');
+        $course = $em->setMaxResults(9)->getResult();
+        
+  
+        return $this->render('default/index.html.twig', ['meeting'=>$course]);
+
+    }
+    public function coursesAction(Request $request)
+    {   
+        $repository = $this->getDoctrine()->getManager();
+        
+        //menu
+        $emCourses = $repository->getRepository('AppBundle:Meeting');
+        $menu = $emCourses->findAll();      
+  
+        return $this->render('default/menu.html.twig', ['menucourses'=>$menu]);
+
+    }
     
 }

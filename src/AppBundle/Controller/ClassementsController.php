@@ -12,10 +12,14 @@ class ClassementsController extends Controller
      /**
      * @Route("/classements", name="classements")
      */
-    public function classementsAction(Request $request)
+    public function classementsAction()
     {
-        // replace this example code with whatever you need
-        return $this->render('default/classements.html.twig');
+        $em = $this->getDoctrine()->getManager(); 
+        
+        $query =$em->createQuery('SELECT m FROM result m');
+        //$query->setParameter(1, 'romanb');
+        $meetings = $query->getResult();
+        return $this->render('default/classements.html.twig', ['classements'=>$meetings]);
     }
     
     

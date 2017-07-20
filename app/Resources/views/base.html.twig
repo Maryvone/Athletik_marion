@@ -5,27 +5,32 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{% block title %}Athletik | Les 1000 pas{% endblock %}</title>
         {% block stylesheets %}
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="css/foundation.css">
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block menu %}
+       {% block menu %}
             <!-- Start Top Bar -->
             <div class="top-bar">
               <div class="top-bar-left">
-                <ul class="menu">
-                  <a href="{{ path('homepage')}}" class="logo"><li class="menu-text">Athletik</li></a>
-                  <a href="{{ path('aboutus')}}"><li class="menu-text">Présentation</li></a>
-                  <a href="{{ path('events')}}"><li class="menu-text">Évenements</li></a>
-                  <a href="{{ path('classements')}}"><li class="menu-text">Classements</li></a>
-                </ul>
+                  <ul class="dropdown menu" data-dropdown-menu>
+                      <li class="menu-text"><a href="{{ path('homepageid')}}" class="logo">Athletik</a></li>
+                      <li><a href="{{ path('aboutus')}}">Présentation</a></li>
+                      <!--<li><a href="{{ path('events')}}">Évenements</a></li>-->
+                      <li><a href="{{ path('resultats')}}">Resultats</a>
+                        <ul>
+                            {{render(controller('AppBundle:Default:courses'))}}
+                        </ul>
+                      </li>
+                      <li><a href="{{ path('classements')}}">Classements</a></li>
+                  </ul>
               </div>
               <div class="top-bar-right">
                 <ul class="menu">
                   <li><a href="#">Mon accès</a></li>
-
+                
                 </ul>
               </div>
             </div>
@@ -58,13 +63,11 @@
         
         
             {% block javascripts %}
-            <script src="js/vendor/jquery.js"></script>
-            <script src="js/vendor/what-input.js"></script>
-            <script src="js/vendor/foundation.js"></script>
-            <script src="js/app.js"></script>
+            <script src="{{ asset('js/vendor/jquery.js')}}"></script>
+            <script src="{{ asset('js/vendor/what-input.js')}}"></script>
+            <script src="{{ asset('js/vendor/foundation.js')}}"></script>
+            <script src="{{ asset('js/app.js')}}"></script>
             <script>$(document).foundation();</script>
-            <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-            <script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
             {% endblock %}
         
     </body>

@@ -6,16 +6,22 @@
     </div>
 
     <div class="row column">
-      <h3>Le classement</h3>
+        {% for result in meeting %}
+      <h3>Les résultats de la course {{result.name}}</h3>
+      <!--{{dump(meeting)}}-->
+        {% endfor %}
     </div>
 
     <div class="row medium-up-3 large-up-4 container_portfolio">
         <table>
             <tr><th>Nom</th><th>Prénom</th><th>Temps</th><th>Points</th></tr>
-            
-      {% for result in classements %}
-          <tr><td>{{result.athlete.lastname}}</td><td>{{result.athlete.firstname}}</td><td>{{result.time}}</td><td>{{result.points}}</td></tr>
+      {% for resultats in resultats %}
+                
+                <tr><td>{{resultats.athlete.lastname}}</td><td>{{resultats.athlete.firstname}}</td><td>{{resultats.time}}</td><td>{{resultats.points}}</td></tr>
+                
+      <!--{{dump(resultats)}}-->
       {% endfor %}
+      
       <!--<div class="column">
         <img class="thumbnail" src="http://placehold.it/50x50">
       </div>
