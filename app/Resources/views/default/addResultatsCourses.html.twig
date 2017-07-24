@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    
+    <label>Sélectionnez la course</label>
+    <select id="courseaddcourse">
+        {% for courses in meeting %}
+            <option value="{{ courses.id }}">{{ courses.name }}</option>
+        {% endfor %}
+    </select>
+    <a id="liencourse" href=""><button type="submit">Valider</button></a>
+{% endblock %}

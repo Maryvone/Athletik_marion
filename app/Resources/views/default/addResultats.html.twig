@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+<table>
+    
+<tr><th>Nom</th><th>Prénom</th><th>Points</th></tr>
+ 
+{% for resultat in resultat %}
+<tr><td>{{resultat.athlete.lastname}}</td><td>{{resultat.athlete.firstname}}</td> <td>{{resultat.points}}</td></tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}

@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Result
@@ -14,10 +15,11 @@ class Result
 {
     /**
      * @var float
+     * @Assert\Regex("/^\d,\d\d$/")
      *
      * @ORM\Column(name="time", type="float", precision=10, scale=0, nullable=false)
      */
-    private $time;
+    protected $time;
 
     /**
      * @var integer
