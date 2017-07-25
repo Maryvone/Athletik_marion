@@ -2,9 +2,12 @@
 
 namespace AppBundle\Controller;
 
+use DateTime;
+use Doctrine\DBAL\Types\Type;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+
 
 class AddController extends Controller
 {
@@ -16,15 +19,14 @@ class AddController extends Controller
     {   
         $repository = $this->getDoctrine()->getManager();
         
-        //table meeting
-        $emMeeting = $repository->getRepository('AppBundle:Meeting');
-        $meeting = $emMeeting->findAll();
-        
-        //table resultat
-        $emResultat = $repository->getRepository('AppBundle:Result');
-        $resultat = $emResultat->findAll();  
+        //affiche toutes les courses passées
+        $query_meetings = $repository->createQuery('SELECT m
+                                                    FROM AppBundle:Meeting m
+                                                    WHERE m.date < :now
+                                                   ')->setParameter("now", new DateTime("NOW"), Type::DATETIME);
+        $finished_meetings = $query_meetings->getResult();
   
-        return $this->render('default/addResultatsCourses.html.twig', ['meeting'=>$meeting, 'resultat'=>$resultat]);
+        return $this->render('default/addResultatsCourses.html.twig', ['resultat'=>$finished_meetings]);
 
     }
     /**

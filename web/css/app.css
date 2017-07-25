@@ -17,6 +17,12 @@ footer{
     max-width: 40vh;
     margin: 2vh 5vh;
 }
+.menuaccueil li{
+    padding-top:1.7vh;
+}
+.top-bar-right{
+    padding-top: 1.7vh;
+}
 /********************PAGE ACCUEIL******************/
 .callout{
     position:relative;
@@ -37,16 +43,19 @@ footer{
     align-items:center;
 
 }
-body .callout.large .row.column.text-center{
-    position:absolute;
-    z-index:2;
-    color:white;
-    
+.callout{
+    border-top: 1px solid rgba(10, 10, 10, 0.25);
 }
 
-.bg_accueil{
+/*.bg_accueil{
     -webkit-filter: blur(2px); /* Safari 6.0 - 9.0 */
-    filter: blur(2px);
+    /*filter: blur(2px);
+}*/
+.dateaccueil{
+      padding-left: 4vh;  
+}
+.coursesaccueil{
+      padding-left: 4vh;  
 }
 .home_last_event_txt{
     padding-left: 4vh;
@@ -75,4 +84,9 @@ table
 td
 {
     border: 1px solid black;
+}
+.boxcenter{
+    max-width:50%;
+    margin:auto;
+    margin-top:4vh;
 }

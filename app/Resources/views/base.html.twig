@@ -15,32 +15,47 @@
             <!-- Start Top Bar -->
             <div class="top-bar">
               <div class="top-bar-left">
-                  <ul class="dropdown menu" data-dropdown-menu>
+                  <ul class="vertical medium-horizontal menu menuaccueil" data-responsive-menu="drilldown medium-dropdown">
                       <li class="menu-text"><a href="{{ path('homepageid')}}" class="logo">Athletik</a></li>
                       <li><a href="{{ path('aboutus')}}">Présentation</a></li>
-                      <!--<li><a href="{{ path('events')}}">Évenements</a></li>-->
-                      <li><a href="{{ path('resultats')}}">Resultats</a>
-                        <ul>
+                      <li><a href="#">Évenements</a>
+                          <ul class="vertical menu">
+                            <li><a href="{{ path('passedevents')}}">Évenements passés</a></li>
+                            <li><a href="{{ path('futurevents')}}">Évenements à venir</a></li>
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            <li><a href="{{ path('inscriptioncourse')}}">S'inscrire à une course</a></li>
+                            {% endif %}
+                        </ul>
+                      </li>
+                      <li><a href="#">Resultats</a>
+                        <ul class="vertical menu">
                             {{render(controller('AppBundle:Default:courses'))}}
                         </ul>
                       </li>
                       <li><a href="{{ path('classements')}}">Classements</a></li>
-                      <li><a href="{{ path('addResultats')}}">Ajouter les résultats</a></li>
-
+                      {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                      <li><a href="#">Gestion des courses</a>
+                        <ul class="vertical menu">
+                            <li><a href="{{ path('classements')}}">Valider les inscriptions</a></li>
+                            <li><a href="{{ path('addResultats')}}">Enregistrer les résultats</a></li>
+                        </ul>
+                      </li>
+                      {% endif %}
                   </ul>
               </div>
+                  
               <div class="top-bar-right">
-                <ul class="menu">
+              <ul class="vertical medium-horizontal menu menuaccueil" data-responsive-menu="drilldown medium-dropdown">   
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
                         <a href="{{ path('fos_user_security_logout') }}">
                             {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                         </a>
                          {% else %}
+                        <a href="{{ path('fos_user_registration_register') }}">Inscription</a>
                         <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
                         {% endif %}
-                  <li><a href="{{ path('fos_user_security_login')}}"></a></li>
-                
+
                 </ul>
               </div>
             </div>

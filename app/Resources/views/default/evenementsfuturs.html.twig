@@ -9,7 +9,8 @@
     <!-- We can now combine rows and columns when there's only one column in that row -->
     <div class="row medium-8 large-7 columns">
       <div class="blog-post">
-        <h3>Le Trail de l'Élorn <small>3/8/2017</small></h3>
+          {% for coursesfutures in coursesfutures %}
+        <h3>{{ coursesfutures.name }} <small>{{ coursesfutures.date|date('d/m/Y') }}</small></h3>
         <img class="thumbnail" src="img/affiche_small.png">
         <p>La Roche Sports Nature organise le Trail de l'Elorn, le dimanche 3 août 2017 au départ de La Roche Maurice.
 Ce site vous permet de vous inscrire à l'épreuve, et vous donne les infos pratiques sur le programme, les parcours, l'accès... </p>
@@ -18,6 +19,7 @@ Ce site vous permet de vous inscrire à l'épreuve, et vous donne les infos prat
             <li><a href="#">Organisateur: Georges Mickael</a></li>
             <li><a href="#">Plus d'infos</a></li>
           </ul>
+            {% endfor %}
         </div>
       </div>
 

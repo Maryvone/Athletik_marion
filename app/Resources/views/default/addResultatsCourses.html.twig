@@ -2,11 +2,15 @@
 
 {% block main %}
     
-    <label>Sélectionnez la course</label>
+    <label>Sélectionnez la course dont les résultats sont à enregistrer</label>
+    <form method="GET" action="{{ path('addResultats')}}">
     <select id="courseaddcourse">
-        {% for courses in meeting %}
+        {% for courses in resultat %}
             <option value="{{ courses.id }}">{{ courses.name }}</option>
         {% endfor %}
+        
     </select>
-    <a id="liencourse" href=""><button type="submit">Valider</button></a>
+    <a id="liencourse" href="#"><button class="button large" type="submit">Valider</button></a>
+    </form>
+    
 {% endblock %}
