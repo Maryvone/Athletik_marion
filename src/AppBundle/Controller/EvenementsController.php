@@ -68,10 +68,11 @@ class EvenementsController extends Controller
             
             $athlete->setLastname($data['nom']);
             $athlete->setFirstname($data['prenom']);
+            $athlete->setBirthdate($data['birthdate']);
             
             $repository = $this->getDoctrine()->getManager();
-            $repository = persist($athlete);
-            $repository = flush();
+            $repository->persist($athlete);
+            $repository->flush();
         }
         
         

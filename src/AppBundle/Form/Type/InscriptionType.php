@@ -2,11 +2,12 @@
 
 namespace AppBundle\Form\Type;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class InscriptionType extends AbstractType{
     
@@ -15,6 +16,7 @@ class InscriptionType extends AbstractType{
         $builder
                 ->add('nom', TextType::class)
                 ->add('prenom', TextType::class)
+                ->add('birthdate', NumberType::class)
                 ->add('Course', EntityType::class, array(
                     'class' => 'AppBundle:Meeting',
                     'choice_label'=>'name'
@@ -22,7 +24,7 @@ class InscriptionType extends AbstractType{
                 ->add('Valider la demande d\'inscription', SubmitType::class, array(
                 'attr' => array('class' => 'button large')))
                 ;
-        
+                
                 
     }
     
