@@ -1,21 +1,6 @@
 //Expression régulière formulaire champs 'Temps'
-//var myRegex = /contenu_à_rechercher/;
-//if (/^\d,\d\d$/){alert();}
-//else(){ alert('Le format saisi n\'est pas correct. <br /> Utilisez ce format x,xx"');}
+//(/^\d,\d\d$/)
 
-////selection catégorie selon date de naissance
-////calcul age selon date de naissance et date du jour
-// date_du_jour = 24/07/2017
-// age = date_du_jour - date_de_naissance
-
-//if age  
-//>40 = Masters
-// 23 – 40 = Seniors
-// 20-22 = Espoirs
-// 18-19 = Juniors
-// 16-17 = Cadets
-// 14-15 = Minimes
-// 12-13 = Benjamins
 $(document).on("change", "#courseaddcourse", function() {
     $("#liencourse").attr("href", '/addResultats/'+$(this).val());
 });
@@ -39,7 +24,7 @@ var anneenaissance = document.querySelector('.addresultbirthdate');
 var time = document.querySelector('.addresulttime');
 
 var coeff;
-var age = 2017-anneenaissance.textContent ;
+var age = 2017-anneenaissance.innerHTML ;
 
 if (age>40){
     coeff=1,35;
@@ -79,9 +64,5 @@ $(document).on("change", ".changetime", function() {
     
     
 })
-//function calcul(){
-//  var tempssaisi = this.value;
-//  nouveautotalpoints = Math.round(1000/tempssaisi*coeff);
-//  console.log(nouveautotalpoints);
-//};
+
 

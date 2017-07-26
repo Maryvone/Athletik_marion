@@ -15,4 +15,12 @@
             {% endfor %}
         </table>
         
+            {% block javascripts %}
+            <script src="{{ asset('js/vendor/jquery.js')}}"></script>
+            <script src="{{ asset('js/vendor/what-input.js')}}"></script>
+            <script src="{{ asset('js/vendor/foundation.js')}}"></script>
+            <script src="{{ asset('js/app.js')}}"></script>
+            <script>$(document).foundation();</script>
+            <script src="{{ asset('js/calculPointsCourse.js')}}"></script>
+            {% endblock %}
 {% endblock %}

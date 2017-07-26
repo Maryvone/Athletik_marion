@@ -12,7 +12,6 @@
     </head>
     <body>
        {% block menu %}
-            <!-- Start Top Bar -->
             <div class="top-bar">
               <div class="top-bar-left">
                   <ul class="vertical medium-horizontal menu menuaccueil" data-responsive-menu="drilldown medium-dropdown">
@@ -36,7 +35,7 @@
                       {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                       <li><a href="#">Gestion des courses</a>
                         <ul class="vertical menu">
-                            <li><a href="{{ path('classements')}}">Valider les inscriptions</a></li>
+                            <li><a href="{{ path('inscriptioncourse')}}">Ajouter les inscriptions</a></li>
                             <li><a href="{{ path('addResultats')}}">Enregistrer les résultats</a></li>
                         </ul>
                       </li>
@@ -59,7 +58,6 @@
                 </ul>
               </div>
             </div>
-            <!-- End Top Bar -->
         {% endblock %}
             
         {% block main %}
@@ -92,7 +90,6 @@
             <script src="{{ asset('js/vendor/what-input.js')}}"></script>
             <script src="{{ asset('js/vendor/foundation.js')}}"></script>
             <script src="{{ asset('js/app.js')}}"></script>
-            <script src="{{ asset('js/calculPointsCourse.js')}}"></script>
             <script>$(document).foundation();</script>
             {% endblock %}
         
