@@ -26,29 +26,24 @@ class AddController extends Controller
                                                    ')->setParameter("now", new DateTime("NOW"), Type::DATETIME);
         $finished_meetings = $query_meetings->getResult();
   
-        return $this->render('default/addResultatsCourses.html.twig', ['resultat'=>$finished_meetings]);
+        return $this->render('default/addResultatsCourses.html.twig', ['meeting'=>$finished_meetings]);
 
     }
-    /**
+
+     /**
      * @Route("/addResultats/{id}", name="addResultatsid")
      */
-
-    public function addResultatsCourseAction(Request $request, $id)
+        public function addResultatsAthleteCourseAction(Request $request, $id)
     {   
         $repository = $this->getDoctrine()->getManager();
                
-        //table resultat
-        $emResultat = $repository->getRepository('AppBundle:Result');
-        $resultat = $emResultat->findAll();
-        
-        //récupérer un id
-        $id = $request->query->get('id');
-         
-        //affiche le resultat des athletes par l'id de la course avec le temps
-        $result = $repository ->getRepository('AppBundle:Result');
-        $queryMeeting = $result->findBy(array('meeting'=>$id));
-  
-        return $this->render('default/addResultats.html.twig', ['resultat'=>$resultat]);
+        $query_athlete_meetings = $repository->createQuery('SELECT m
+                                                    FROM AppBundle:Result m
+                                                    WHERE m.meeting = :id
+                                                   ')->setParameter("id", $id);
+        $resultat = $query_athlete_meetings->getResult();
+          
+        return $this->render('default/addResultatsAthletes.html.twig', ['resultatsathletes'=>$resultat]);
 
     }
 }

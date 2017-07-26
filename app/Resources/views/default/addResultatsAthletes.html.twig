@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    <h3>Sélectionnez les athlètes de la course dont le temps</h3>
+
+        <table>
+            {% for resultat in resultatsathletes %}
+                <tr><td class="addresultlastname">{{resultat.athlete.lastname}}</td> 
+                    <td class="addresultfirstname">{{resultat.athlete.firstname}}</td>
+                    <td id="points{{resultat.athlete.id}}"class="addresultpoints">{{resultat.points}}</td> 
+                    <td class="addresulttime"><input class="changetime" id="{{resultat.athlete.id}}" placeholder="{{resultat.time}}" class=""/> </td>
+                    <td class="addresultbirthdate"> {{resultat.athlete.birthdate}}</td> 
+                    <td class="addresultid"> {{resultat.athlete.id}}</td></tr>
+            {% endfor %}
+        </table>
+        
+{% endblock %}

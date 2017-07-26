@@ -85,8 +85,12 @@ td
 {
     border: 1px solid black;
 }
+/********************DIVERSES PAGES********************/
 .boxcenter{
     max-width:50%;
     margin:auto;
     margin-top:4vh;
+}
+.hidden{
+    visibility:hidden;
 }
