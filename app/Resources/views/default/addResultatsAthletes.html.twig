@@ -2,16 +2,17 @@
 
 {% block main %}
 
-    <h3>Sélectionnez les athlètes de la course dont le temps</h3>
+    <h3>Sélectionnez les athlètes de la course </h3>
 
-        <table>
+        <table class="tableau_addresultats">
+            <tr><th>Nom</th><th>Prénom</th><th>Points</th><th>Temps</th></tr>
             {% for resultat in resultatsathletes %}
                 <tr><td class="addresultlastname">{{resultat.athlete.lastname}}</td> 
                     <td class="addresultfirstname">{{resultat.athlete.firstname}}</td>
                     <td id="points{{resultat.athlete.id}}"class="addresultpoints">{{resultat.points}}</td> 
                     <td class="addresulttime"><input class="changetime" id="{{resultat.athlete.id}}" placeholder="{{resultat.time}}" class=""/> </td>
-                    <td class="addresultbirthdate"> {{resultat.athlete.birthdate}}</td> 
-                    <td class="addresultid"> {{resultat.athlete.id}}</td></tr>
+                    <td class="hidden addresultbirthdate"> {{resultat.athlete.birthdate}}</td> 
+                    <td class="hidden addresultid"> {{resultat.athlete.id}}</td></tr>
             {% endfor %}
         </table>
         
@@ -23,4 +24,6 @@
             <script>$(document).foundation();</script>
             <script src="{{ asset('js/calculPointsCourse.js')}}"></script>
             {% endblock %}
+            
+            <button href="" class="button large"> Valider les nouveaux scores </button>
 {% endblock %}

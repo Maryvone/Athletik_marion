@@ -46,4 +46,18 @@ class AddController extends Controller
         return $this->render('default/addResultatsAthletes.html.twig', ['resultatsathletes'=>$resultat]);
 
     }
+    
+        public function submitAction(Request $request)
+    {   
+        $repository = $this->getDoctrine()->getManager();
+               
+        $query_athlete_meetings = $repository->createQuery('SELECT m
+                                                    FROM AppBundle:Result m
+                                                    WHERE m.meeting = :id
+                                                   ')->setParameter("id", $id);
+        $resultat = $query_athlete_meetings->getResult();
+          
+        return $this->render('default/addResultatsAthletes.html.twig', ['resultatsathletes'=>$resultat]);
+
+    }
 }
